@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1047663859831",
+    "project_id": "prettypickmajor",
+    "storage_bucket": "prettypickmajor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047663859831:android:d9005f45c722ea452ece72",
+        "android_client_info": {
+          "package_name": "com.example.prettypickk02"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiyidQ8eLoVs4KQGLrHzNX9hyLt6GX9Ok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
