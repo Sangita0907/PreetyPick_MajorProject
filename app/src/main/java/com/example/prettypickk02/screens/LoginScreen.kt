@@ -142,7 +142,7 @@ fun LoginScreen(navController: NavHostController) {
                             auth!!
                                 .signInWithEmailAndPassword(
                                     email.trim(),
-                                    password
+                                    password.trim()     // ⭐ FIXED
                                 )
                                 .addOnSuccessListener { result ->
 
@@ -155,6 +155,19 @@ fun LoginScreen(navController: NavHostController) {
                                         .addOnSuccessListener { doc ->
 
                                             isLoading = false
+
+                                            if (!doc.exists()) {          // ⭐ NEW SAFETY
+                                                errorMsg = "User data not found"
+                                                return@addOnSuccessListener
+                                            }
+
+                                            val blocked =
+                                                doc.getBoolean("isBlocked") ?: false   // ⭐ OPTIONAL FEATURE
+
+                                            if (blocked) {
+                                                errorMsg = "Account blocked by admin"
+                                                return@addOnSuccessListener
+                                            }
 
                                             val role = doc.getString("role") ?: "user"
 
@@ -182,13 +195,11 @@ fun LoginScreen(navController: NavHostController) {
                                             }
                                         }
                                         .addOnFailureListener {
-
                                             isLoading = false
                                             errorMsg = "Failed to fetch user role"
                                         }
                                 }
                                 .addOnFailureListener {
-
                                     isLoading = false
                                     errorMsg = it.message ?: "Login failed"
                                 }

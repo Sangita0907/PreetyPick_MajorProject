@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
+    implementation("androidx.compose.material:material-icons-extended")
+
     // Firebase BOM
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
 
@@ -75,6 +77,8 @@ dependencies {
 
     // Gson (for search history storage)
     implementation("com.google.code.gson:gson:2.10.1")
+
+    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
